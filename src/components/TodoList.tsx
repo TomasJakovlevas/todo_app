@@ -27,6 +27,22 @@ const deleteTodo = async (id: string) => {
   revalidateTag('todo');
 };
 
+const updateTodo = async (id: string, title: string, note?: string) => {
+  'use server';
+
+  await prisma.todo.update({
+    where: {
+      id,
+    },
+    data: {
+      title,
+      note,
+    },
+  });
+
+  revalidateTag('todo');
+};
+
 const TodoList = async () => {
   const todos = await getAllTodos();
 
@@ -38,6 +54,7 @@ const TodoList = async () => {
           {...todo}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
+          updateTodo={updateTodo}
         />
       ))}
     </ul>

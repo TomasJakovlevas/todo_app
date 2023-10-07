@@ -12,6 +12,7 @@ type TodoItemProps = {
   updatedAt: Date;
   toggleTodo: (id: string, complete: boolean) => void;
   deleteTodo: (id: string) => void;
+  updateTodo: (id: string, title: string, note?: string) => void;
 };
 
 const TodoItem = ({
@@ -23,13 +24,22 @@ const TodoItem = ({
   updatedAt,
   toggleTodo,
   deleteTodo,
+  updateTodo,
 }: TodoItemProps) => {
   // Hooks
   // -- state
   const [editMode, setEditMode] = useState(false);
 
   // Functions
-  const handleSubmit = (data: FormData) => {
+  const handleSubmit = async (data: FormData) => {
+    const title = data.get('title')?.valueOf();
+
+    if (typeof title !== 'string' || title.length === 0) {
+      throw new Error('Invalid title');
+    }
+
+    updateTodo(id, title);
+
     setEditMode(false);
   };
 
