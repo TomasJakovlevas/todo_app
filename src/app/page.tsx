@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <NavBar title='Todos' />
-      <section className='container max-w-6xl mx-auto'>
+      <section className='container max-w-6xl mx-auto px-3'>
         <Suspense fallback={<div>loading...</div>}>
           <TodoList />
         </Suspense>

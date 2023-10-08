@@ -6,7 +6,7 @@ import { useState } from 'react';
 type TodoItemProps = {
   id: string;
   title: string;
-  note: string;
+  note: string | null;
   complete: boolean;
   createdAt: Date;
   updatedAt: Date;
@@ -20,7 +20,6 @@ const TodoItem = ({
   title,
   note,
   complete,
-  createdAt,
   updatedAt,
   toggleTodo,
   deleteTodo,
@@ -81,7 +80,7 @@ const TodoItem = ({
             })}
           </div>
         </div>
-        <p>{note}</p>
+        <p>{note && note}</p>
         <div className='flex justify-end gap-2'>
           {editMode ? (
             <>

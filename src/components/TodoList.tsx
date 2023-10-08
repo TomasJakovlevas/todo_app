@@ -47,7 +47,7 @@ const TodoList = async () => {
   const todos = await getAllTodos();
 
   return (
-    <ul className='pl-4 flex flex-col gap-2'>
+    <ul className='flex flex-col gap-2'>
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
