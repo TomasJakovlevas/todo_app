@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 type TodoItemProps = {
   id: string;
-  title: string;
+  title: string | null;
   note: string | null;
   complete: boolean;
   createdAt: Date;
@@ -51,7 +51,7 @@ const TodoItem = ({
               <input
                 className='bg-transparent text-xl px-2 outline-none border-b ml-3'
                 type='text'
-                defaultValue={title}
+                defaultValue={title || ''}
                 name='title'
               />
             ) : (
@@ -67,7 +67,7 @@ const TodoItem = ({
                   htmlFor={id}
                   className='peer-checked:line-through peer-checked:text-slate-500 cursor-pointer text-xl'
                 >
-                  {title}
+                  {title && title}
                 </label>
               </>
             )}
