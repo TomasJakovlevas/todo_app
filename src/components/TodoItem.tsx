@@ -1,6 +1,5 @@
 'use client';
 
-import { prisma } from '@/db';
 import { useState } from 'react';
 
 type TodoItemProps = {
@@ -43,36 +42,35 @@ const TodoItem = ({
   };
 
   return (
-    <li className='flex flex-col border border-quaternary px-2 py-1 gap-2'>
-      <form action={handleSubmit}>
+    <li className='flex flex-col border-quaternary rounded px-2 py-2 gap-2 bg-secondary'>
+      <form action={handleSubmit} className='flex flex-col gap-2	'>
         <div className='flex flex-1 gap-2 items-center justify-between'>
-          <div className='flex gap-2 items-center'>
+          <div className='flex gap-2 items-center flex-1'>
+            <input
+              id={id}
+              type='checkbox'
+              className='cursor-pointer peer'
+              defaultChecked={complete}
+              onChange={(e) => toggleTodo(id, e.target.checked)}
+              disabled={editMode}
+            />
             {editMode ? (
               <input
-                className='bg-transparent text-xl px-2 outline-none border-b ml-3'
+                className='bg-secondary_l1 rounded text-xl px-0 outline-none flex-1'
                 type='text'
                 defaultValue={title || ''}
                 name='title'
               />
             ) : (
-              <>
-                <input
-                  id={id}
-                  type='checkbox'
-                  className='cursor-pointer peer'
-                  defaultChecked={complete}
-                  onChange={(e) => toggleTodo(id, e.target.checked)}
-                />
-                <label
-                  htmlFor={id}
-                  className='peer-checked:line-through peer-checked:text-slate-500 cursor-pointer text-xl'
-                >
-                  {title && title}
-                </label>
-              </>
+              <label
+                htmlFor={id}
+                className='peer-checked:line-through peer-checked:text-slate-500 cursor-pointer text-xl border-b border-transparent'
+              >
+                {title && title}
+              </label>
             )}
           </div>
-          <div className='text-sm text-secondary'>
+          <div className='text-sm text-secondary_l1'>
             Last update at:{' '}
             {updatedAt.toLocaleDateString('lt', {
               hour: 'numeric',
@@ -80,23 +78,44 @@ const TodoItem = ({
             })}
           </div>
         </div>
-        <p>{note && note}</p>
-        <div className='flex justify-end gap-2'>
+
+        {editMode ? (
+          <textarea
+            defaultValue={note || ''}
+            className='bg-secondary_l1 rounded px-2 py-1 outline-none  '
+          />
+        ) : (
+          note && <p> {note} </p>
+        )}
+
+        <div
+          className={`flex gap-2 ${
+            editMode ? 'justify-between' : 'justify-end'
+          }`}
+        >
           {editMode ? (
             <>
               <button
-                className='border border-transparent hover:border-danger hover:text-danger px-2 py-1'
+                className='border border-transparent hover:border-danger hover:text-danger px-2 py-1 rounded'
                 onClick={() => deleteTodo(id)}
                 type='button'
               >
                 Delete
               </button>
-              <button
-                className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1'
-                type='submit'
-              >
-                Save
-              </button>
+              <div className='flex gap-2'>
+                <button
+                  className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1 rounded'
+                  type='button'
+                >
+                  Cancel
+                </button>
+                <button
+                  className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1 rounded'
+                  type='submit'
+                >
+                  Save
+                </button>
+              </div>
             </>
           ) : (
             <button

@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         primary: '#2C3639',
         secondary: '#3F4E4F',
+        secondary_l1: '#657172',
         tertiary: '#A27B5C',
         quaternary: '#DCD7C9',
         danger: '#9A3B3B',
