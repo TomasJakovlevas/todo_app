@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Button from './Button';
 
 type TodoItemProps = {
   id: string;
@@ -98,37 +99,30 @@ const TodoItem = ({
         >
           {editMode ? (
             <>
-              <button
-                className='border border-transparent hover:border-danger hover:text-danger px-2 py-1 rounded'
-                onClick={() => deleteTodo(id)}
+              <Button
+                label='Delete'
+                action={() => deleteTodo(id)}
+                variant='danger'
                 type='button'
-              >
-                Delete
-              </button>
+              />
               <div className='flex gap-2'>
-                <button
-                  className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1 rounded'
-                  onClick={toggleEditMode}
+                <Button
+                  label='Cancel'
+                  action={toggleEditMode}
+                  variant='success'
                   type='button'
-                >
-                  Cancel
-                </button>
-                <button
-                  className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1 rounded'
-                  type='submit'
-                >
-                  Save
-                </button>
+                />
+
+                <Button label='Save' variant='success' type='submit' />
               </div>
             </>
           ) : (
-            <button
-              className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1 rounded'
-              onClick={toggleEditMode}
+            <Button
+              label='Edit'
+              action={toggleEditMode}
+              variant='success'
               type='button'
-            >
-              Edit
-            </button>
+            />
           )}
         </div>
       </form>
