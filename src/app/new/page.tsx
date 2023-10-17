@@ -12,14 +12,6 @@ const createTodo = async (data: FormData) => {
   if (typeof title !== 'string') return;
   if (typeof note !== 'string') return;
 
-  console.log({
-    data: {
-      ...(title.length !== 0 && { title }),
-      ...(note.length !== 0 && { note }),
-      complete: false,
-    },
-  });
-
   await prisma.todo.create({
     data: {
       ...(title.length !== 0 && { title }),

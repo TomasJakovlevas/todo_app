@@ -27,7 +27,7 @@ const deleteTodo = async (id: string) => {
   revalidateTag('todo');
 };
 
-const updateTodo = async (id: string, title: string, note?: string) => {
+const updateTodo = async (id: string, title?: string, note?: string) => {
   'use server';
 
   await prisma.todo.update({

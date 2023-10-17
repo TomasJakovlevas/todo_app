@@ -11,7 +11,7 @@ type TodoItemProps = {
   updatedAt: Date;
   toggleTodo: (id: string, complete: boolean) => void;
   deleteTodo: (id: string) => void;
-  updateTodo: (id: string, title: string, note?: string) => void;
+  updateTodo: (id: string, title?: string, note?: string) => void;
 };
 
 const TodoItem = ({
@@ -31,12 +31,12 @@ const TodoItem = ({
   // Functions
   const handleSubmit = async (data: FormData) => {
     const title = data.get('title')?.valueOf();
+    const note = data.get('note')?.valueOf();
 
-    if (typeof title !== 'string' || title.length === 0) {
-      throw new Error('Invalid title');
-    }
+    if (typeof title !== 'string') return;
+    if (typeof note !== 'string') return;
 
-    updateTodo(id, title);
+    updateTodo(id, title, note);
 
     setEditMode(false);
   };
@@ -81,6 +81,7 @@ const TodoItem = ({
 
         {editMode ? (
           <textarea
+            name='note'
             defaultValue={note || ''}
             className='bg-secondary_l1 rounded px-2 py-1 outline-none  '
           />
