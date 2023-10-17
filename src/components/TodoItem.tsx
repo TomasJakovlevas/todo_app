@@ -41,6 +41,8 @@ const TodoItem = ({
     setEditMode(false);
   };
 
+  const toggleEditMode = () => setEditMode((prev) => !prev);
+
   return (
     <li className='flex flex-col border-quaternary rounded px-2 py-2 gap-2 bg-secondary'>
       <form action={handleSubmit} className='flex flex-col gap-2	'>
@@ -106,6 +108,7 @@ const TodoItem = ({
               <div className='flex gap-2'>
                 <button
                   className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1 rounded'
+                  onClick={toggleEditMode}
                   type='button'
                 >
                   Cancel
@@ -120,8 +123,8 @@ const TodoItem = ({
             </>
           ) : (
             <button
-              className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1'
-              onClick={() => setEditMode(true)}
+              className='border border-transparent hover:border-tertiary hover:text-tertiary px-2 py-1 rounded'
+              onClick={toggleEditMode}
               type='button'
             >
               Edit
