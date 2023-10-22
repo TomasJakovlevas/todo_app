@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
 
 // Components
 import Button from './Button';
-import Modal from './Modal';
+import Modal from './Modal/Modal';
+import DeleteConfirmation from './Modal/DeleteConfirmation';
 
 type TodoItemProps = {
   id: string;
@@ -30,11 +30,6 @@ const TodoItem = ({
   updateTodo,
 }: TodoItemProps) => {
   // Hooks
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  // const showModal = searchParams.get('modal');
-
   // -- state
   const [editMode, setEditMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -141,7 +136,10 @@ const TodoItem = ({
       </li>
       {showModal && (
         <Modal toggle={setShowModal}>
-          <h1>labas</h1>
+          <DeleteConfirmation
+            deleteAction={() => deleteTodo(id)}
+            cancelAction={() => setShowModal(false)}
+          />
         </Modal>
       )}
     </>

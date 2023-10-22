@@ -1,5 +1,5 @@
 interface ButtonType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+  label?: string;
   action?: () => void;
   variant?: 'danger' | 'success';
 }
