@@ -14,7 +14,7 @@ type NavBarLinkProp = {
 
 const NavBar = ({ title }: NavBarProp) => {
   return (
-    <header className='mb-4 border-b border-quaternary '>
+    <header className='mb-10 border-b border-quaternary h-[70px] flex items-center'>
       <div className='flex justify-between item-center container mx-auto px-3 py-2 max-w-6xl'>
         <h1 className='text-2xl'>{title}</h1>
         <div className='flex border'>
