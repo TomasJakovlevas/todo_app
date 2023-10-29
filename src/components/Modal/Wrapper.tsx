@@ -6,7 +6,7 @@ type WrapperProp = {
 const Wrapper = ({ children, size }: WrapperProp) => {
   return (
     <div
-      className={`bg-primary px-3 py-3 rounded 
+      className={`bg-primary px-3 py-3 rounded shadow-2xl	
         ${size === 's' && 'w-1/5'}
         ${size === 'm' && 'w-1/3'}
         ${size === 'l' && 'w-1/2'}
