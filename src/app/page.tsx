@@ -2,6 +2,9 @@ import TodoList from '@/components/TodoList';
 import NavBar from '@/components/NavBar';
 import { Suspense } from 'react';
 
+// Components
+import ToggleFilters from '@/components/Filters/ToggleFilters';
+
 const Home = () => {
   return (
     <>

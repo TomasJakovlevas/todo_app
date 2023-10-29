@@ -1,7 +1,7 @@
 import { prisma } from '@/db';
 import { revalidateTag } from 'next/cache';
-import React from 'react';
 import TodoItem from './TodoItem';
+import ToggleFilters from './Filters/ToggleFilters';
 
 const getAllTodos = async () => {
   //   await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -47,17 +47,22 @@ const TodoList = async () => {
   const todos = await getAllTodos();
 
   return (
-    <ul className='flex flex-col gap-2'>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          {...todo}
-          toggleTodo={toggleTodo}
-          deleteTodo={deleteTodo}
-          updateTodo={updateTodo}
-        />
-      ))}
-    </ul>
+    <>
+      <div className='mb-3 '>
+        <ToggleFilters />
+      </div>
+      <ul className='flex flex-col gap-2'>
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            {...todo}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
+            updateTodo={updateTodo}
+          />
+        ))}
+      </ul>
+    </>
   );
 };
 
