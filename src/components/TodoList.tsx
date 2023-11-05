@@ -1,55 +1,33 @@
-import { prisma } from '@/db';
-import { revalidateTag } from 'next/cache';
+'use client';
+
+import { useState } from 'react';
+import { Todo } from '@prisma/client';
+
+// Components
 import TodoItem from './TodoItem';
 import ToggleFilters from './Filters/ToggleFilters';
 
-const getAllTodos = async () => {
-  //   await new Promise((resolve) => setTimeout(resolve, 3000));
-
-  return prisma.todo.findMany();
+type TodoListProps = {
+  todos: Array<Todo>;
+  toggleTodo: (id: string, complete: boolean) => void;
+  deleteTodo: (id: string) => void;
+  updateTodo: (id: string, title?: string, note?: string) => void;
 };
 
-const toggleTodo = async (id: string, complete: boolean) => {
-  'use server';
+const TodoList = ({
+  todos,
+  toggleTodo,
+  deleteTodo,
+  updateTodo,
+}: TodoListProps) => {
+  const filters = ['active', 'completed'];
 
-  await prisma.todo.update({ where: { id }, data: { complete } });
-};
-
-const deleteTodo = async (id: string) => {
-  'use server';
-
-  await prisma.todo.delete({
-    where: {
-      id: id,
-    },
-  });
-
-  revalidateTag('todo');
-};
-
-const updateTodo = async (id: string, title?: string, note?: string) => {
-  'use server';
-
-  await prisma.todo.update({
-    where: {
-      id,
-    },
-    data: {
-      title,
-      note,
-    },
-  });
-
-  revalidateTag('todo');
-};
-
-const TodoList = async () => {
-  const todos = await getAllTodos();
+  const [list, setList] = useState([]);
 
   return (
     <>
       <div className='mb-3 '>
-        <ToggleFilters />
+        <ToggleFilters filters={filters} />
       </div>
       <ul className='flex flex-col gap-2'>
         {todos.map((todo) => (

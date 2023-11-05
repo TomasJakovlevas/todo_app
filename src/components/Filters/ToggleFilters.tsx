@@ -1,12 +1,15 @@
-import { useState } from 'react';
 import TheToggle from '../TheToggle';
 
-const ToggleFilters = () => {
+type TheToggleProps = {
+  filters: Array<string>;
+};
+
+const ToggleFilters = ({ filters }: TheToggleProps) => {
   return (
     <div className='flex gap-2'>
-      <TheToggle label='Canceled' />
-      <TheToggle label='Active' />
-      <TheToggle label='Inactive' />
+      {filters.map((filter) => (
+        <TheToggle key={filter} label={filter} />
+      ))}
     </div>
   );
 };

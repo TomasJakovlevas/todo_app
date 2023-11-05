@@ -1,19 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { Todo } from '@prisma/client';
 
 // Components
 import Button from './Button';
 import Modal from './Modal/Modal';
 import DeleteConfirmation from './Modal/DeleteConfirmation';
 
-type TodoItemProps = {
-  id: string;
-  title: string | null;
-  note: string | null;
-  complete: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+type TodoItemProps = Todo & {
   toggleTodo: (id: string, complete: boolean) => void;
   deleteTodo: (id: string) => void;
   updateTodo: (id: string, title?: string, note?: string) => void;

@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type TheToggleProps = {
   label: string;
@@ -10,14 +10,16 @@ type TheToggleProps = {
 const TheToggle = ({ label, active }: TheToggleProps) => {
   // Hooks
   const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  // Vars
+  const isActive = searchParams.get('filter') === label;
 
   // Functions
   const setFilter = () => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
 
-    current.set('selected', label);
+    isActive ? current.delete('filter') : current.set('filter', label);
 
     const search = current.toString();
     const query = search ? `?${search}` : '';
@@ -27,8 +29,8 @@ const TheToggle = ({ label, active }: TheToggleProps) => {
 
   return (
     <button
-      className={`px-2 py-1 rounded-2xl ${
-        active && 'bg-gradient-to-r from-blue-700 to-blue-400'
+      className={`px-2 py-1 rounded-2xl capitalize ${
+        isActive && 'bg-gradient-to-r from-secondary to-secondary_l1'
       }`}
       onClick={setFilter}
     >
