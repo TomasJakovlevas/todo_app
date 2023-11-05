@@ -26,7 +26,7 @@ const createTodo = async (data: FormData) => {
 const Page = () => {
   return (
     <>
-      <NavBar title='New' />
+      <NavBar />
       <section className='container max-w-6xl mx-auto px-3'>
         <TodoItemForm submit={createTodo} />
       </section>
