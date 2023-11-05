@@ -4,10 +4,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 type TheToggleProps = {
   label: string;
-  active?: boolean;
 };
 
-const TheToggle = ({ label, active }: TheToggleProps) => {
+const TheToggle = ({ label }: TheToggleProps) => {
   // Hooks
   const router = useRouter();
   const searchParams = useSearchParams();

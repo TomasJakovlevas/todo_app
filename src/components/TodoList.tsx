@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Todo } from '@prisma/client';
 
 // Components
 import TodoItem from './TodoItem';
 import ToggleFilters from './Filters/ToggleFilters';
+import { useSearchParams } from 'next/navigation';
+import { useFilteredTodos } from '@/hooks/useTodos';
 
 type TodoListProps = {
   todos: Array<Todo>;
@@ -20,9 +22,11 @@ const TodoList = ({
   deleteTodo,
   updateTodo,
 }: TodoListProps) => {
-  const filters = ['active', 'completed'];
+  // Hooks
+  const list = useFilteredTodos(todos);
 
-  const [list, setList] = useState([]);
+  // Vars
+  const filters = ['active', 'completed'];
 
   return (
     <>
@@ -30,7 +34,7 @@ const TodoList = ({
         <ToggleFilters filters={filters} />
       </div>
       <ul className='flex flex-col gap-2'>
-        {todos.map((todo) => (
+        {list.map((todo) => (
           <TodoItem
             key={todo.id}
             {...todo}
