@@ -7,6 +7,7 @@ export const toggleTodo = async (id: string, complete: boolean) => {
   'use server';
 
   await prisma.todo.update({ where: { id }, data: { complete } });
+  revalidateTag('todo');
 };
 
 export const deleteTodo = async (id: string) => {

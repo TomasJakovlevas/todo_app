@@ -12,7 +12,7 @@ import {
 const Home = async () => {
   return (
     <>
-      <NavBar title='Todos' />
+      <NavBar />
       <section className='container max-w-6xl mx-auto my-3 px-3'>
         <Suspense fallback={<div>loading...</div>}>
           <TodoList
