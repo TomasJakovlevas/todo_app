@@ -1,5 +1,7 @@
+import DeleteIcon from '@/icons/delete/deleteIcon';
 import Button from '../Button';
 import Wrapper from './Wrapper';
+import CloseIcon from '@/icons/close/closeIcon';
 
 type DeleteConfirmationProp = {
   deleteAction: () => void;
@@ -18,8 +20,15 @@ const DeleteConfirmation = ({
           Caution: This cannot be undone
         </p>
         <div className='mt-2 flex gap-2 justify-around'>
-          <Button label='Delete' variant='danger' action={deleteAction} />
-          {cancelAction && <Button label='Cancel' action={cancelAction} />}
+          <Button
+            label='Delete'
+            variant='danger'
+            action={deleteAction}
+            Icon={DeleteIcon}
+          />
+          {cancelAction && (
+            <Button label='Cancel' action={cancelAction} Icon={CloseIcon} />
+          )}
         </div>
       </div>
     </Wrapper>

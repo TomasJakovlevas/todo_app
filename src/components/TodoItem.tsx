@@ -7,6 +7,10 @@ import { Todo } from '@prisma/client';
 import Button from './Button';
 import Modal from './Modal/Modal';
 import DeleteConfirmation from './Modal/DeleteConfirmation';
+import OkIcon from '@/icons/ok/okIcon';
+import CloseIcon from '@/icons/close/closeIcon';
+import EditIcon from '@/icons/edit/editIcon';
+import DeleteIcon from '@/icons/delete/deleteIcon';
 
 type TodoItemProps = Todo & {
   toggleTodo: (id: string, complete: boolean) => void;
@@ -102,9 +106,9 @@ const TodoItem = ({
               <>
                 <Button
                   label='Delete'
-                  // action={() => deleteTodo(id)}
                   action={() => setShowModal(true)}
                   variant='danger'
+                  Icon={DeleteIcon}
                   type='button'
                 />
                 <div className='flex gap-2'>
@@ -112,10 +116,16 @@ const TodoItem = ({
                     label='Cancel'
                     action={toggleEditMode}
                     variant='success'
+                    Icon={CloseIcon}
                     type='button'
                   />
 
-                  <Button label='Save' variant='success' type='submit' />
+                  <Button
+                    label='Save'
+                    variant='success'
+                    Icon={OkIcon}
+                    type='submit'
+                  />
                 </div>
               </>
             ) : (
@@ -123,6 +133,7 @@ const TodoItem = ({
                 label='Edit'
                 action={toggleEditMode}
                 variant='success'
+                Icon={EditIcon}
                 type='button'
               />
             )}
