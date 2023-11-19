@@ -28,7 +28,7 @@ const TheToggle = ({ label }: TheToggleProps) => {
 
   return (
     <button
-      className={`px-2 py-1 rounded-2xl capitalize ${
+      className={`px-2 py-1 rounded-2xl capitalize border border-transparent hover:border-white ${
         isActive && 'bg-gradient-to-r from-secondary to-secondary_l1'
       }`}
       onClick={setFilter}
