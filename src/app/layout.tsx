@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Catamaran } from 'next/font/google';
+import { ThemeProvider } from './theme-provider';
 
 const inter = Catamaran({ subsets: ['latin'] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-gradient-to-l from-primary to-primary_2 text-white `}
       >
-        {children}
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

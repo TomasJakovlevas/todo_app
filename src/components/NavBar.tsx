@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import ThemeToggler from './ThemeToggler';
 
 type NavBarLinkProp = {
   title: string;
@@ -23,10 +24,16 @@ const NavBar = () => {
     <header className='mb-10 border-b border-quaternary h-[70px] flex items-center'>
       <div className='flex justify-between item-center container mx-auto px-3 py-2 max-w-6xl'>
         <h1 className='text-2xl'>{activeLink?.title}</h1>
-        <div className='flex border'>
-          {links.map((link) => (
-            <NavBarLink key={link.path} title={link.title} path={link.path} />
-          ))}
+        <div className='flex gap-[10px]'>
+          <div>
+            <ThemeToggler />
+          </div>
+
+          <div className='flex border'>
+            {links.map((link) => (
+              <NavBarLink key={link.path} title={link.title} path={link.path} />
+            ))}
+          </div>
         </div>
       </div>
     </header>
