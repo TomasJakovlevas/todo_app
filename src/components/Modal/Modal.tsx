@@ -18,7 +18,7 @@ const Modal = ({ children, toggle }: ModalProp) => {
   return mounted
     ? createPortal(
         <div
-          className='fixed inset-0 bg-gray-500 bg-opacity-40 transition-opacity flex justify-center items-center'
+          className='fixed inset-0 bg-gray-900 dark:bg-gray-500 dark:bg-opacity-40 bg-opacity-40 transition-opacity flex justify-center items-center'
           onClick={() => {
             toggle && toggle((prev) => !prev);
           }}

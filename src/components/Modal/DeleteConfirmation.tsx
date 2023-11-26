@@ -14,7 +14,7 @@ const DeleteConfirmation = ({
 }: DeleteConfirmationProp) => {
   return (
     <Wrapper size='m'>
-      <div className='text-quaternary'>
+      <div className='dark:text-quaternary'>
         <h3 className='text-2xl text-center'>Delete this todo?</h3>
         <p className='text-xs text-center text-secondary_l1'>
           Caution: This cannot be undone

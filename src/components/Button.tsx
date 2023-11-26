@@ -19,7 +19,10 @@ const Button = ({
     <button
       className={`border border-transparent  px-2 py-1 rounded flex items-center gap-2
        ${variant === 'danger' && 'hover:border-danger hover:text-danger'}
-       ${variant === 'success' && 'hover:border-tertiary hover:text-tertiary'}
+       ${
+         variant === 'success' &&
+         'hover:border-quaternary hover:text-quaternary dark:hover:border-tertiary dark:hover:text-tertiary'
+       }
        `}
       onClick={action && action}
       {...props}

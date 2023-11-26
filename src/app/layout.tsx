@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} bg-gradient-to-l from-primary to-primary_2 text-white `}
+        className={`${inter.className} bg-gradient-to-l dark:from-primary dark:to-primary_2 from-quaternary to-tertiary dark:text-white text-primary `}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           {children}

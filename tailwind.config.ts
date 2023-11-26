@@ -21,6 +21,8 @@ const config: Config = {
         secondary_l1: '#657172',
         tertiary: '#A27B5C',
         quaternary: '#DCD7C9',
+        quaternary_l1: '#b0aca1',
+        l_secondary: '#8D9E5D',
         danger: '#9A3B3B',
         white: '#F1F5F9',
       },

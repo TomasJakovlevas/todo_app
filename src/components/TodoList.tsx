@@ -1,12 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Todo } from '@prisma/client';
 
 // Components
 import TodoItem from './TodoItem';
 import ToggleFilters from './Filters/ToggleFilters';
-import { useSearchParams } from 'next/navigation';
 import { useFilteredTodos } from '@/hooks/useTodos';
 
 type TodoListProps = {

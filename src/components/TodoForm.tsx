@@ -43,12 +43,12 @@ const TodoForm = ({ submit }: TodoFormType) => {
     <form
       action={submit}
       onKeyDown={handleKeyDown}
-      className='flex flex-col border rounded px-2 py-2'
+      className='flex flex-col border border-primary dark:border-white rounded px-2 py-2'
     >
       <input
         type='text'
         name='title'
-        className='bg-transparent px-2 py-1 outline-none text-xl font-semibold'
+        className='bg-transparent px-2 py-1 outline-none text-xl font-semibold dark:placeholder-quaternary_l1 placeholder-primary'
         placeholder='Title'
         onKeyDown={handleInputKeyDown}
         autoFocus
@@ -57,7 +57,7 @@ const TodoForm = ({ submit }: TodoFormType) => {
         ref={textAreaRef}
         onKeyDown={handleTextAreaKeyDown}
         name='note'
-        className='bg-transparent px-2 py-1 outline-none h-[100px]'
+        className='bg-transparent px-2 py-1 outline-none h-[100px] dark:placeholder-quaternary_l1 placeholder-primary'
         placeholder='Details...'
       />
       <div className='flex gap-2 justify-end'>

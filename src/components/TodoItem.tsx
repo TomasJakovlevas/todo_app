@@ -50,7 +50,10 @@ const TodoItem = ({
 
   return (
     <>
-      <li className='flex flex-col border-quaternary rounded px-2 py-2 gap-2 bg-secondary'>
+      <li
+        className='flex flex-col rounded px-2 py-2 gap-2 bg-quaternary_l1 dark:bg-secondary
+'
+      >
         <form action={handleSubmit} className='flex flex-col gap-2	'>
           <div className='flex flex-1 gap-2 items-center justify-between'>
             <div className='flex gap-2 items-center flex-1'>
@@ -64,7 +67,7 @@ const TodoItem = ({
               />
               {editMode ? (
                 <input
-                  className='bg-secondary_l1 rounded text-xl px-0 outline-none flex-1'
+                  className='bg-quaternary dark:bg-secondary_l1 rounded text-xl px-0 outline-none flex-1'
                   type='text'
                   defaultValue={title || ''}
                   name='title'
@@ -91,7 +94,7 @@ const TodoItem = ({
             <textarea
               name='note'
               defaultValue={note || ''}
-              className='bg-secondary_l1 rounded px-2 py-1 outline-none  '
+              className='bg-quaternary dark:bg-secondary_l1 rounded px-2 py-1 outline-none  '
             />
           ) : (
             note && <p> {note} </p>
