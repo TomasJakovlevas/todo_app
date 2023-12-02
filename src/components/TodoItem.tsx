@@ -40,6 +40,7 @@ const TodoItem = ({
   const [showModal, setShowModal] = useState(false);
 
   const ref = useRef<null | HTMLLIElement>(null);
+
   useRemoveNewTodoParam(ref);
   useScrollIntoView(ref);
 
