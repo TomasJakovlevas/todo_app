@@ -21,9 +21,11 @@ const NavBar = () => {
   const activeLink = links.find((link) => link.path === pathname);
 
   return (
-    <header className='mb-10 h-[70px] flex items-center dark:shadow-[rgba(241,_245,_249,_0.1)_0px_9px_30px] shadow-[rgba(44,54,_57,_0.1)_0px_9px_30px]'>
+    <nav className='mb-5 sm:mb-10 h-[50px] sm:h-[70px] flex items-center dark:shadow-[rgba(241,_245,_249,_0.1)_0px_9px_30px] shadow-[rgba(44,54,_57,_0.1)_0px_9px_30px]'>
       <div className='flex justify-between item-center container mx-auto px-3 py-2 max-w-6xl'>
-        <h1 className='text-2xl flex items-center'>{activeLink?.title}</h1>
+        <h1 className='text-xl sm:text-2xl flex items-center'>
+          {activeLink?.title}
+        </h1>
         <div className='flex gap-[10px]'>
           <div>
             <ThemeToggler />
@@ -36,7 +38,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
@@ -49,7 +51,7 @@ const NavBarLink = ({ title, path }: NavBarLinkProp) => {
   return (
     <Link
       href={path}
-      className={`px-2 py-1  dark:hover:bg-quaternary dark:hover:text-primary hover:bg-tertiary hover:text-white ${
+      className={`px-2 py-1 text-sm sm:text-base dark:hover:bg-quaternary dark:hover:text-primary hover:bg-tertiary hover:text-white ${
         pathname === path &&
         'dark:bg-quaternary dark:text-primary bg-tertiary text-white'
       }`}

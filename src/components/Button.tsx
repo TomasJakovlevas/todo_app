@@ -29,10 +29,10 @@ const Button = ({
     >
       {Icon && (
         <span>
-          <Icon className='h-[16px] w-[16px]' />
+          <Icon className='h-[14px] w-[14px] sm:h-[16px] sm:w-[16px]' />
         </span>
       )}
-      <span> {label}</span>
+      <span className='text-sm sm:text-base'> {label}</span>
     </button>
   );
 };

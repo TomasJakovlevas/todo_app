@@ -70,14 +70,14 @@ const TodoList = ({
 
   return (
     <>
-      <div className='mb-3 '>
+      <div className='mb-3'>
         <ToggleFilters filters={filters} />
       </div>
       <ul className='flex flex-col gap-2'>
         {seperateByDatesList.length ? (
           seperateByDatesList.map((obj) => (
             <Fragment key={obj.date}>
-              <h2 className='text-xl'>{obj.date}</h2>
+              <h2 className='text-lg sm:text-xl'>{obj.date}</h2>
               {obj.todos?.map((todo) => (
                 <TodoItem
                   key={todo.id}

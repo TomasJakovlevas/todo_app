@@ -48,7 +48,7 @@ const TodoForm = ({ submit }: TodoFormType) => {
       <input
         type='text'
         name='title'
-        className='bg-transparent px-2 py-1 outline-none text-xl font-semibold dark:placeholder-quaternary_l1 placeholder-primary'
+        className='bg-transparent px-2 py-1 outline-none text-lg sm:text-xl font-semibold dark:placeholder-quaternary_l1 placeholder-primary'
         placeholder='Title'
         onKeyDown={handleInputKeyDown}
         autoFocus
@@ -57,7 +57,7 @@ const TodoForm = ({ submit }: TodoFormType) => {
         ref={textAreaRef}
         onKeyDown={handleTextAreaKeyDown}
         name='note'
-        className='bg-transparent px-2 py-1 outline-none h-[100px] dark:placeholder-quaternary_l1 placeholder-primary'
+        className='bg-transparent px-2 py-1 outline-none h-[100px] dark:placeholder-quaternary_l1 placeholder-primary text-sm sm:text-base'
         placeholder='Details...'
       />
       <div className='flex gap-2 justify-end'>

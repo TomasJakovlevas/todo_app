@@ -81,7 +81,7 @@ const TodoItem = ({
               />
               {editMode ? (
                 <input
-                  className='bg-quaternary dark:bg-secondary_l1 rounded text-xl px-0 outline-none flex-1'
+                  className='bg-quaternary dark:bg-secondary_l1 rounded text-lg sm:text-xl px-2 outline-none flex-1'
                   type='text'
                   defaultValue={title || ''}
                   name='title'
@@ -89,13 +89,13 @@ const TodoItem = ({
               ) : (
                 <label
                   htmlFor={id}
-                  className='peer-checked:line-through peer-checked:text-slate-500 cursor-pointer text-xl border-b border-transparent'
+                  className='peer-checked:line-through peer-checked:text-slate-500 cursor-pointer text-lg sm:text-xl border-b border-transparent'
                 >
                   {title && title}
                 </label>
               )}
             </div>
-            <div className='text-sm text-secondary_l1'>
+            <div className='hidden sm:block text-sm text-secondary_l1  '>
               Last update at:{' '}
               {updatedAt.toLocaleDateString('lt', {
                 hour: 'numeric',
@@ -108,10 +108,10 @@ const TodoItem = ({
             <textarea
               name='note'
               defaultValue={note || ''}
-              className='bg-quaternary dark:bg-secondary_l1 rounded px-2 py-1 outline-none  '
+              className='bg-quaternary dark:bg-secondary_l1 rounded px-2 py-1 outline-none text-sm sm:text-base'
             />
           ) : (
-            note && <p> {note} </p>
+            note && <p className='text-sm sm:text-base '> {note} </p>
           )}
 
           <div
