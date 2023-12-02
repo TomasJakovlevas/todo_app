@@ -2,9 +2,7 @@ import { Todo } from '@prisma/client';
 import { ReadonlyURLSearchParams, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-type UseFilteredTodosProps = Array<Todo>;
-
-export const useFilteredTodos = (todos: UseFilteredTodosProps) => {
+export const useFilteredTodos = (todos: Array<Todo>) => {
   const searchParams = useSearchParams();
   const [list, setList] = useState(todos);
 

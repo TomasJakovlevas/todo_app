@@ -12,7 +12,7 @@ const createTodo = async (data: FormData) => {
   if (typeof title !== 'string') return;
   if (typeof note !== 'string') return;
 
-  await prisma.todo.create({
+  const newTodo = await prisma.todo.create({
     data: {
       ...(title.length !== 0 && { title }),
       ...(note.length !== 0 && { note }),
@@ -20,7 +20,7 @@ const createTodo = async (data: FormData) => {
     },
   });
 
-  redirect('/');
+  if (newTodo) redirect(`/?newId=${newTodo.id}`);
 };
 
 const Page = () => {

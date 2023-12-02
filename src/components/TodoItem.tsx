@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Todo } from '@prisma/client';
 
 // Components
@@ -12,10 +12,15 @@ import CloseIcon from '@/icons/close/closeIcon';
 import EditIcon from '@/icons/edit/editIcon';
 import DeleteIcon from '@/icons/delete/deleteIcon';
 
+// Hooks
+import { useRemoveNewTodoParam } from '@/hooks/useRemoveNewTodoParam';
+import { useScrollIntoView } from '@/hooks/useScrollIntoView';
+
 type TodoItemProps = Todo & {
   toggleTodo: (id: string, complete: boolean) => void;
   deleteTodo: (id: string) => void;
   updateTodo: (id: string, title?: string, note?: string) => void;
+  isNew: boolean;
 };
 
 const TodoItem = ({
@@ -27,11 +32,16 @@ const TodoItem = ({
   toggleTodo,
   deleteTodo,
   updateTodo,
+  isNew,
 }: TodoItemProps) => {
   // Hooks
   // -- state
   const [editMode, setEditMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  const ref = useRef<null | HTMLLIElement>(null);
+  useRemoveNewTodoParam(ref);
+  useScrollIntoView(ref);
 
   // Functions
   const handleSubmit = async (data: FormData) => {
@@ -51,8 +61,11 @@ const TodoItem = ({
   return (
     <>
       <li
-        className='flex flex-col rounded px-2 py-2 gap-2 bg-quaternary_l1 dark:bg-secondary
-'
+        className={`flex flex-col rounded px-2 py-2 gap-2 bg-quaternary_l1 dark:bg-secondary ${
+          isNew &&
+          'border border-primary dark:border-white shadow-[0_10px_20px_rgba(44,54,_57,_0.4)] dark:shadow-[0_10px_20px_rgba(241,_245,_249,_0.4)]'
+        }`}
+        ref={isNew ? ref : null}
       >
         <form action={handleSubmit} className='flex flex-col gap-2	'>
           <div className='flex flex-1 gap-2 items-center justify-between'>
