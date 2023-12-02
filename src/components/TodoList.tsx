@@ -27,6 +27,10 @@ const TodoList = ({
   const searchParams = useSearchParams();
   const list = useFilteredTodos(todos);
 
+  list.sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+
   // Vars
   const filters = ['active', 'completed'];
   const newId = searchParams.get('newId');

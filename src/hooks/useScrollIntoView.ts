@@ -6,6 +6,7 @@ export const useScrollIntoView = (ref: RefObject<null | HTMLElement>) => {
 
     ref.current.scrollIntoView({
       behavior: 'smooth',
+      block: 'center',
     });
   }, [ref]);
 };
