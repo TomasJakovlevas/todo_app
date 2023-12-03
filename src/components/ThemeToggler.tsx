@@ -12,7 +12,7 @@ const ThemeToggler = () => {
 
   return (
     <button
-      className={`w-fit rounded-md flex items-center justify-center h-full w-[30px] [&>svg]:h-[14px] sm:[&>svg]:h-[20px]`}
+      className={`w-fit rounded-md flex items-center justify-center h-full w-[30px] [&>svg]:h-[20px]`}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       {theme === 'light' ? <MoonIcon /> : <SunIcon />}
