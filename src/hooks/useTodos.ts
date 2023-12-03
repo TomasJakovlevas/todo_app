@@ -23,3 +23,5 @@ export const useFilteredTodos = (todos: Array<Todo>) => {
 
   return list;
 };
+
+// "postinstall": "prisma generate"
