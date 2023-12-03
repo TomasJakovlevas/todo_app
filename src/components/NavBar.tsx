@@ -29,11 +29,18 @@ const NavBar = () => {
 
   const links = [
     { title: 'Todos', path: '/' },
-    { title: 'New', path: '/new' },
+    // { title: 'New', path: '/new' },
     { title: 'About', path: '/about' },
   ];
 
-  const activeLink = links.find((link) => link.path === pathname);
+  let activeLink = links.find((link) => link.path === pathname);
+
+  if (!activeLink) {
+    activeLink = {
+      title: pathname.split('/').at(-1) || '',
+      path: pathname,
+    };
+  }
 
   return (
     <nav
@@ -42,7 +49,7 @@ const NavBar = () => {
       }`}
     >
       <div className='flex justify-between item-center container mx-auto px-3 py-2 max-w-6xl'>
-        <h1 className='text-xl sm:text-2xl flex items-center'>
+        <h1 className='text-xl sm:text-2xl flex items-center capitalize'>
           {activeLink?.title}
         </h1>
         <div className='flex gap-[10px]'>
