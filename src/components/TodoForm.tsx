@@ -45,9 +45,12 @@ const TodoForm = ({ submit }: TodoFormType) => {
     }
   };
 
-  const handleSubmit = (data: FormData) => {
+  const handleSubmit = async (data: FormData) => {
     setLoading(true);
-    submit(data);
+
+    setTimeout(() => {
+      submit(data);
+    }, 10);
   };
 
   return (
