@@ -26,6 +26,7 @@ const Page = () => {
               <li>Tailwind</li>
               <li>Next-themes</li>
               <li>Prisma</li>
+              <li>MongoDB</li>
             </ul>
           </p>
 

@@ -1,7 +1,7 @@
 import { prisma } from '@/db';
 import { revalidateTag } from 'next/cache';
 
-export const getAllTodos = async () => prisma.todo.findMany();
+export const getAllTodos = async () => await prisma.todo.findMany();
 
 export const toggleTodo = async (id: string, complete: boolean) => {
   'use server';
