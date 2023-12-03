@@ -25,6 +25,9 @@ const config: Config = {
         l_secondary: '#8D9E5D',
         danger: '#9A3B3B',
         white: '#F1F5F9',
+
+        primary_o: '#2C363930',
+        quaternary_o: '#DCD7C930',
       },
     },
   },

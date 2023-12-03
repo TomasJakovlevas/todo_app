@@ -36,7 +36,11 @@ const NavBar = () => {
   const activeLink = links.find((link) => link.path === pathname);
 
   return (
-    <nav className='mb-5 sm:mb-10 h-[50px] sm:h-[70px] flex items-center dark:shadow-[rgba(241,_245,_249,_0.1)_0px_9px_30px] shadow-[rgba(44,54,_57,_0.1)_0px_9px_30px] relative'>
+    <nav
+      className={`mb-5 sm:mb-10 h-[50px] sm:h-[70px] flex items-center dark:shadow-[rgba(241,_245,_249,_0.1)_0px_9px_30px] shadow-[rgba(44,54,_57,_0.1)_0px_9px_30px] relative sticky top-0 bg-gradient-to-l dark:from-primary dark:to-primary_2 from-quaternary to-tertiary duration-100 ${
+        !menuIsOpen && 'overflow-hidden dark:from-primary_o from-quaternary_o'
+      }`}
+    >
       <div className='flex justify-between item-center container mx-auto px-3 py-2 max-w-6xl'>
         <h1 className='text-xl sm:text-2xl flex items-center'>
           {activeLink?.title}
