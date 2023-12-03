@@ -68,9 +68,6 @@ const TodoList = ({
 
   const seperateByDatesList = seperateByDates(list);
 
-  console.log(todos);
-  console.log(seperateByDatesList);
-
   return (
     <>
       <div className='mb-3'>
