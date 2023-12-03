@@ -2,6 +2,8 @@ import TodoList from '@/components/TodoList';
 import NavBar from '@/components/NavBar';
 import { Suspense } from 'react';
 
+export const dynamic = 'force-dynamic';
+
 import {
   getAllTodos,
   toggleTodo,
