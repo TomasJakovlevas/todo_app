@@ -58,7 +58,7 @@ const Page = () => {
           </p>
 
           <p>
-            Created by - Tomas Jakovlevas /z
+            Created by - Tomas Jakovlevas /
             <Link
               href={'https://github.com/TomasJakovlevas'}
               target='_blank'
