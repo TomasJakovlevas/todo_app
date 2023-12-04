@@ -17,7 +17,7 @@ const Page = () => {
 
           <p className='mb-3'>
             So what is it about? It&apos;s Todo app. Yes. Good old Todo app. I
-            figured that I better practice with simple app than bigger more
+            figured that I better practice with a simple app than a bigger more
             complicated one. That one is still in progress and not ready to see
             the light yet.
           </p>
@@ -52,9 +52,9 @@ const Page = () => {
           <p></p>
 
           <p className='mb-3'>
-            I learned a lot in progress, and realized how much I don&apos;t
-            know. It&apos;s a big world out there. And I&apos;ll continue to
-            expolore it by one Todo at the time.
+            I learned a lot in progress and realized how much I didn&apos;t
+            know. It&apos;s a big world out there and I&apos;ll continue to
+            explore it one Todo at a time.
           </p>
 
           <p>
